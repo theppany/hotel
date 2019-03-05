@@ -9,4 +9,5 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:api'], 'namespace' => 'A
     Route::apiResource('cities', 'CitiesController');
     Route::apiResource('categories', 'CategoriesController');
     Route::apiResource('companies', 'CompaniesController');
+    Route::apiResource('companie', 'CompaniesController');
 });
