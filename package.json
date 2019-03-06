@@ -27,5 +27,8 @@
         "vue-sweetalert2": "^1.2.4",
         "vue2-datatable-component": "^2.2.2",
         "vuex": "^3.0.1"
+    },
+    "dependencies": {
+        "babel-runtime": "^6.26.0"
     }
 }

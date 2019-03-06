@@ -6,18 +6,15 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Laravel\Dusk\DuskServiceProvider;
 
+class AppServiceProvider extends ServiceProvider {
 
-class AppServiceProvider extends ServiceProvider
-{
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
         Schema::defaultStringLength(191);
-
     }
 
     /**
@@ -25,8 +22,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
         /**
          * Added missing method for package to work
@@ -38,5 +34,10 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register(DuskServiceProvider::class);
         }
 
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(\Way\Generators\GeneratorsServiceProvider::class);
+            $this->app->register(\Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class);
+        }
     }
+
 }
